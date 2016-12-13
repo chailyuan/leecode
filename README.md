@@ -1,12 +1,9 @@
 # leecode下的项目
 
+2016-12-13 15:00:09
 
-		int ans = 0;
-        while (x) {
-            int temp = ans * 10 + x % 10;
-            if (temp / 10 != ans)
-                return 0;
-            ans = temp;
-            x /= 10;
-        }
-        return ans;
+添加答案：
+
+##Median of Two Sorted Arrays
+
+核心思想是从每个数组的最后面（最大值）处向外弹出数据，对比两个数组的数据。
