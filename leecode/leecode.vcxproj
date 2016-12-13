@@ -15,6 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MedianofTwoSortedArrays.h" />
+    <ClInclude Include="RegularExpressionMatching.h" />
     <ClInclude Include="ReverseInteger.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
