@@ -4,32 +4,64 @@ using namespace std;
 class RegularExpressionMatching {
 public:
 	bool isMatch(std::string s, std::string p) {
-		basic_string <char>::size_type indexCh1a,_off;
+		string::size_type indexCh1=0,indexCh2a=0,indexCh2b=0,_off=0;
+		char next=0;
 
-		indexCh1a = p.find(s);
-		if (indexCh1a != string::npos )
+		indexCh1 = p.find(s);
+		if (indexCh1 != string::npos )
 			return true;
 
-		indexCh1a = 0;
-		_off = 4;
-		indexCh1a = p.find_first_of(s[0],_off);
+		indexCh1 = 0;
 
-		while(indexCh1a != string::npos)
+		for (indexCh2a=0;indexCh2a<p.size();)
 		{
-			int i = 0;
-			for (i=1;i<s.length(),indexCh1a+s.length()<p.length();i++)
+			for (indexCh1=0;indexCh1<s.size(),indexCh2a+indexCh2b<p.size();)
 			{
-				if (s[i]!=p[indexCh1a+i] && '.'!=p[indexCh1a+i])
+				if (s[indexCh1]==p[indexCh2a+indexCh2b])
 				{
-					break;
+					indexCh1++;
+					indexCh2b++;
 				}
+				else if (p[indexCh2a+indexCh2b]=='.')
+				{
+					indexCh1++;
+					indexCh2b++;
+				}
+				else if (p[indexCh2a+indexCh2b]=='*')
+				{
+					string::size_type i = p.find_first_not_of(s[indexCh1],indexCh2a+indexCh2b+1);
+					string::size_type j = s.find_first_not_of(s[indexCh1],indexCh1+1);
+
+					if (i==string::npos && j==string::npos)
+					{
+						return true;
+					}
+					else if (i !=string::npos && j==string::npos)
+					{
+						return true;
+					}else if (i==string::npos && j!=string::npos)
+					{
+						return false;
+					}else if (i!=string::npos && j!=string::npos)
+					{
+						indexCh1=j;
+						indexCh2b=i-indexCh2a;
+					}
+				}
+				else
+					break;
+				if (indexCh1==s.size())
+					return true;
 			}
-			if (i==s.length())
-			{
-				return true;
-			}
-			_off = indexCh1a+1;
-			indexCh1a = p.find_first_of(s[0],_off);
+			indexCh2a++;
+		}
+		if (indexCh1==s.size())
+		{
+			return true;
+		}
+		else if (indexCh1<s.size())
+		{
+			return false;
 		}
 
 		return false;
