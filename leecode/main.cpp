@@ -4,8 +4,8 @@
 
 int main()
 {
-	std::string s1("aab");
-	std::string s2("c*a*b");
+	std::string s1("aaa");
+	std::string s2("ab*a");
 
 	RegularExpressionMatching s;
 	bool b =s.isMatch(s1,s2);
