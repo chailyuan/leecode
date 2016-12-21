@@ -17,6 +17,7 @@
     <ClInclude Include="MedianofTwoSortedArrays.h" />
     <ClInclude Include="RegularExpressionMatching.h" />
     <ClInclude Include="ReverseInteger.h" />
+    <ClInclude Include="Solution.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9997A680-1B1F-44A0-82B5-105524405E0B}</ProjectGuid>

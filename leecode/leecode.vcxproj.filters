@@ -29,5 +29,8 @@
     <ClInclude Include="RegularExpressionMatching.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Solution.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
